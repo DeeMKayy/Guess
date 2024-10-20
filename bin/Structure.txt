@@ -15,3 +15,11 @@ Psuedocode:
 I should have a list of color objects with unique hints. iterate through this list and randomly select a color.
 a function takes user inpute and compares it to the generated color and returns try again if false, if more than two incorrect attempts have been made,
 returns the hint. if match returns congratulations and game resets.
+
+REST API 
+
+
+Frontend
+Basically requires a play button to initiate game, a variant butterfly image (greyed-out)
+color buttons for user to select, dialogue box where instruction and results appear
+
