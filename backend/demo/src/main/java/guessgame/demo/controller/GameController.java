@@ -1,6 +1,6 @@
 package guessgame.demo.controller;
 
-import guessgame.demo.Color;
+import guessgame.demo.model.Color;
 import guessgame.demo.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +13,11 @@ public class GameController {
     private GameService GameService;
     private Color randomColor;
 
+    @GetMapping("/getColors") 
+    public List<Color> getColors() {
+        return GameService.getColors();
+    }
+    
     @GetMapping("/start")
     public Color startGame() {
         randomColor = GameService.getRandomColor();

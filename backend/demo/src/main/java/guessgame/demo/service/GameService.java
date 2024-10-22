@@ -1,6 +1,6 @@
 package guessgame.demo.service;
 
-import guessgame.demo.Color;
+import guessgame.demo.model.Color;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
