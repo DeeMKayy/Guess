@@ -21,7 +21,7 @@ export default ({
     },
     async created() {
         try {
-            const response = await axios.get('http://localhost:8080/getColors');
+            const response = await axios.get('https://guess-nu.vercel.app/getColors');
             this.colorsArr = response.data;
         } catch (error) {
             console.error('Error fetching colors:', error);
@@ -30,7 +30,7 @@ export default ({
     methods: {
         async validateGuess(selection) {
             try {
-                const response = await axios.post('http://localhost:8080/guess', {
+                const response = await axios.post('https://guess-nu.vercel.app/guess', {
                     color: selection
                 });
 

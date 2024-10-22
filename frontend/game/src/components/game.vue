@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <img src="src/assests/variant.png" alt="variant">
+      <img src="/frontend/src/assets/variant.png" alt="variant">
     <colorChart></colorChart>
     </div>
   </div>
