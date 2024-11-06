@@ -1,13 +1,14 @@
 <template>
   <div class="container">
     <div>
-      <img src="/frontend/src/assets/variant.png" alt="variant">
+      <img src="/src/assets/variant.png" alt="variant">
     <colorChart></colorChart>
     </div>
   </div>
 </template>
 
 <script>
+
 import colorChart from './colors.vue';
 
 export default {
