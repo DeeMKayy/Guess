@@ -1,8 +1,10 @@
 package guessgame.demo.controller;
 import java.util.List; 
 import guessgame.demo.model.Color;
+import guessgame.demo.model.Guess;
 import guessgame.demo.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -26,10 +28,11 @@ public class GameController {
     }
 
     @PostMapping("/guess")
-    public String guessColor(@RequestParam String userGuess) {
+    public ResponseEntity<String> guessColor(@RequestBody Guess guess) {
+        System.out.println("Received guess: " + guess.getGuess());
         if (randomColor == null) {
             randomColor = GameService.getRandomColor();
         }
-        return GameService.checkGuess(userGuess, randomColor);
+        return ResponseEntity.ok(GameService.checkGuess(guess.getGuess(), randomColor));
     }
 }

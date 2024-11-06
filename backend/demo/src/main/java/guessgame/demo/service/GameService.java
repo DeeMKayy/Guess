@@ -38,7 +38,7 @@ public class GameService {
             count++;
             if (count > 2) {
                 return "Try Again! 😝 Hint: " + color.getHint();
-            }
+            } 
             return "Try Again! 😝";
         }
     }
