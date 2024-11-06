@@ -1,4 +1,5 @@
 package guessgame.demo.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List; 
 import guessgame.demo.model.Color;
 import guessgame.demo.model.Guess;
@@ -9,17 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/game")
+@RequestMapping("/api")
 public class GameController {
     @Autowired
     private GameService GameService;
     private Color randomColor;
 
+    @CrossOrigin
     @GetMapping("/getColors") 
     public List<Color> getColors() {
         return GameService.getColors();
     }
     
+    @CrossOrigin
     @GetMapping("/start")
     public Color startGame() {
         randomColor = GameService.getRandomColor();
@@ -27,9 +30,10 @@ public class GameController {
         return randomColor;
     }
 
+    @CrossOrigin
     @PostMapping("/guess")
     public ResponseEntity<String> guessColor(@RequestBody Guess guess) {
-        System.out.println("Received guess: " + guess.getGuess());
+        System.out.println("Answer: " + guess);
         if (randomColor == null) {
             randomColor = GameService.getRandomColor();
         }

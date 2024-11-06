@@ -1,20 +1,20 @@
 <template>
   <div class="container">
     <div>
-      <img src="/src/assets/variant.png" alt="variant">
-    <colorChart></colorChart>
+      <img src="../assets/variant.png" alt="variant">
     </div>
   </div>
+  <ColorChart></ColorChart>
 </template>
 
 <script>
 
-import colorChart from './colors.vue';
+import ColorChart from '../components/colors.vue';
 
 export default {
   name: 'GuessGame',
   components: {
-    colorChart
+    ColorChart
   }
 }
 </script>
@@ -22,8 +22,9 @@ export default {
 <style scoped>
 img {
   position: absolute;
-  width: 9%;
-  height:  12%;
+  left: 45%;
+  width: 10%;
+  height:  13%;
 /* animation: fly 3s infinite alternate, scale 8s linear infinite alternate;
     animation-delay: 4s;
     transform-origin: center center;*/
