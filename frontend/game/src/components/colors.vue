@@ -32,7 +32,7 @@ export default ({
     methods: {
         async validateGuess(selection) {
             try {
-                const response = await axios.post('http://localhost:8080/api/guess', { selection });
+                const response = await axios.post('http://localhost:8080/api/guess', { guess: selection });
                 alert(response.data);
             } catch (error) {
                 console.error('Error verifying color: ', error);
@@ -48,7 +48,7 @@ p {
     color: black;
 }
 #colorCont {
-    background-color: grey;
+    /*background-color: grey;*/
     margin: 10%;
     padding: 2%;
     padding-bottom: 5%;
