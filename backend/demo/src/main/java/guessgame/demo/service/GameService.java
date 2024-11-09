@@ -11,6 +11,7 @@ import java.util.Random;
 public class GameService {
     private List<Color> colors;
     private int count;
+    private boolean correctGuess;
 
     public GameService() {
         colors = new ArrayList<>();
@@ -33,8 +34,10 @@ public class GameService {
 
     public String checkGuess(String guess, Color color) {
         if (guess.equalsIgnoreCase(color.getName())) {
+            correctGuess = true;
             return "Congrats! You guessed right! 🎉🥳";
         } else {
+            correctGuess = false;
             count++;
             if (count > 2) {
                 return "Try Again! 😝 Hint: " + color.getHint();
@@ -43,7 +46,16 @@ public class GameService {
         }
     }
 
-    public void resetCount() {
+    public void resetCount(){
         this.count = 0;
+    }
+
+    public boolean isCorrectGuess() {
+        return correctGuess;
+    }
+
+    public void resetGame() {
+        this.count = 0;
+        this.correctGuess = false;
     }
 }

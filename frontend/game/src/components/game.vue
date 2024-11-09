@@ -1,14 +1,10 @@
 <template>
   <div class="container">
-    <div>
-      <img src="../assets/variant.png" alt="variant">
-    </div>
+    <ColorChart></ColorChart>
   </div>
-  <ColorChart></ColorChart>
 </template>
 
 <script>
-
 import ColorChart from '../components/colors.vue';
 
 export default {
@@ -16,7 +12,7 @@ export default {
   components: {
     ColorChart
   }
-}
+};
 </script>
 
 <style scoped>
@@ -25,8 +21,10 @@ img {
   left: 45%;
   width: 10%;
   height:  13%;
+  display: block;
 /* animation: fly 3s infinite alternate, scale 8s linear infinite alternate;
     animation-delay: 4s;
     transform-origin: center center;*/
 }
+
 </style>

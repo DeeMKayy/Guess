@@ -1,5 +1,6 @@
 package guessgame.demo.controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List; 
 import guessgame.demo.model.Color;
 import guessgame.demo.model.Guess;
@@ -32,11 +33,26 @@ public class GameController {
 
     @CrossOrigin
     @PostMapping("/guess")
-    public ResponseEntity<String> guessColor(@RequestBody Guess guess) {
+    public ResponseEntity<Map<String, Object>> guessColor(@RequestBody Guess guess) {
         System.out.println("Answer: " + guess);
-        if (randomColor == null) {
+        /*if (randomColor == null) {
             randomColor = GameService.getRandomColor();
-        }
-        return ResponseEntity.ok(GameService.checkGuess(guess.getGuess(), randomColor));
+        }*/
+        String result = GameService.checkGuess(guess.getGuess(), randomColor);
+        boolean isCorrect = GameService.isCorrectGuess();
+        System.out.println("Correct boolean: " + isCorrect);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", result);
+        response.put("boolean", isCorrect);
+        
+        return ResponseEntity.ok(response);
+    }
+    @CrossOrigin
+    @GetMapping("/reset")
+    public Color resetGame() {
+        GameService.resetGame();
+        randomColor = GameService.getRandomColor();
+        return randomColor;
     }
 }
