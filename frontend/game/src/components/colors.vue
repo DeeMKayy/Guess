@@ -9,7 +9,7 @@
             <br>    
             <button v-for="color in colorsArr"
             :key="color.name"
-            :style="{ backgroundColor: color.name.toLowerCase() }"
+            :style="{ backgroundColor: color.name }"
             class="colorbtn"
             @click="validateGuess(color.name)">
             </button>
@@ -39,7 +39,7 @@ export default ({
     },
     async created() {
         try {
-            const response = await axios.get('http://localhost:8082/api/getColors');
+            const response = await axios.get('http://localhost:8083/api/getColors');
             this.colorsArr = response.data;
         } catch (error) {
             console.error('Error fetching colors:', error);
@@ -48,7 +48,7 @@ export default ({
     methods: {
         async startGame() {
         try {
-            const response = await axios.get("http://localhost:8082/api/start");
+            const response = await axios.get("http://localhost:8083/api/start");
             console.log(response.data);
             this.answer = response.data.name;
             this.isGameStarted = true;
@@ -60,7 +60,7 @@ export default ({
         },
         async validateGuess(selection) {
             try {
-                const response = await axios.post('http://localhost:8082/api/guess', { guess: selection });
+                const response = await axios.post('http://localhost:8083/api/guess', { guess: selection });
                 //alert(response.data);
                 this.resultMessage = response.data.message;
 
@@ -73,7 +73,6 @@ export default ({
 
                 const gameChart = document.getElementById('gameChart');
                 const variant = document.getElementById('variant');
-                let animationPlayed = false;
                 
                 if (this.correctGuess === resultBoolean) {
                     result.style.display = "block";
@@ -81,16 +80,10 @@ export default ({
                 } else if (!this.correctGuess === resultBoolean) {
                     this.isGameStarted = false;
                     this.gameOver = true;
-
+                    result.style.display = "none";
+                    this.resultMessage = " ";
+                    gameChart.style.display = "none";
                     variant.changeVariantColor(this.response.name);
-                    if (animationPlayed) {
-                        result.style.display = "block";
-                        gameChart.style.display = "block";
-                    } else {
-                        this.resultMessage = " ";
-                        result.style.display = "none";
-                        gameChart.style.display = "none";
-                    }
                 }
 
             } catch (error) {
@@ -102,22 +95,22 @@ export default ({
             variant.style.filter = "none";
             switch (answer) {
                 case 'pink':
-                    variant.style.backgroundColor = 'pink';
+                    variant.style.filter = 'pink';
                     break;
                 case 'blue':
-                    variant.style.backgroundColor = 'blue';
+                    variant.style.filter = 'blue';
                     break;
                 case 'green':
-                    variant.style.backgroundColor = 'green';
+                    variant.style.filter = 'green';
                     break;
                 case 'purple':
-                    variant.style.backgroundColor = 'green';
+                    variant.style.filter = 'green';
                     break;
                 case 'yellow':
-                    variant.style.backgroundColor = 'green';
+                    variant.style.filter = 'green';
                     break;
                 default:
-                    variant.style.backgroundColor = 'gray'; // Default or fallback color
+                    variant.style.filter = 'gray'; // Default or fallback color
             }
         }
     },
@@ -187,7 +180,7 @@ p {
     border-width: 0px;
     border-radius: 50%;
     display: absolute;
-    padding: 2%;
+
     transition: transform 0.2s;
 }
 
@@ -214,7 +207,7 @@ p {
   background-color: rgba(0, 0, 0, 0.308);
   border-radius: 5%;
   margin-top: -15.8%;
-  padding-top: 10%;
+  padding-top: 5%;
   /*width: 30%;
   left: 40%;
   margin-left: 35%;

@@ -1,25 +1,30 @@
 <template>
 <div id="app">
+  <div id="flyCont">
+    <ButterflyAction></ButterflyAction>
+  </div>
   <div id="txtBackdrop"> 
     <h1>
       {{ title }}
     </h1>
   </div>
   <GuessGame></GuessGame>
-</div>
+  </div>
 </template>
 
 <script>
 import GuessGame from './components/game.vue'
+import ButterflyAction from './components/ButterflyAction.vue';
 
 export default {
   name: 'App',
   components: {
-    GuessGame
+    GuessGame,
+    ButterflyAction
   },
   data() {
     return {
-      title: 'Guess Game'
+      title: 'Guess Guess'
     }
   }
 }
@@ -65,5 +70,8 @@ h1 {
   left: 40%;
   margin-left: 35%;
   margin-top: 10%;
+}
+#flyCont{
+  top: -10%;
 }
 </style>

@@ -15,11 +15,11 @@ public class GameService {
 
     public GameService() {
         colors = new ArrayList<>();
-        colors.add(new Color("Pink", "I'm just a girl 🥺"));
-        colors.add(new Color("Blue", "Bro, the sky? 🙄"));
-        colors.add(new Color("Purple", "Prince advises you on an umbrella ☂️"));
-        colors.add(new Color("Yellow", "Patrick loves him, Squidward can't stand him 🧽"));
-        colors.add(new Color("Green", "It can be money, it can be food, it can be on every tree you see 👀"));
+        colors.add(new Color("#ffbdd9", "I'm just a girl 🥺"));
+        colors.add(new Color("#87ceeb", "Bro, the sky? 🙄"));
+        colors.add(new Color("#c3b1e1", "Prince advises you on an umbrella ☂️"));
+        colors.add(new Color("#fffaa0", "Patrick loves him, Squidward can't stand him 🧽"));
+        colors.add(new Color("#b9d8b9", "It can be money, it can be food, it can be on every tree you see 👀"));
         this.count = 0;
     }
 
