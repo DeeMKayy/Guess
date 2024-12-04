@@ -15,4 +15,5 @@ public class Guess {
     public String getGuess() {
         return guess;
     }
+    
 }

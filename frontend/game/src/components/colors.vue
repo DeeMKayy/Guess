@@ -4,7 +4,7 @@
         <button v-if="!isGameStarted && !gameOver" @click="startGame" id="playBtn">{{ startText }}</button>
         <button v-else-if="gameOver" @click="startGame" id="playAgainBtn">{{ playAgainText }}</button>
         <div v-if="isGameStarted" id="gameChart">
-            <img src="../assets/variant.png" alt="variant" id="variant">
+            <img src="../assets/variant.png" alt="variant" id="variant" :style="variantStyle">
             <p><strong>What color is the butterfly?</strong></p> 
             <br>    
             <button v-for="color in colorsArr"
@@ -13,7 +13,7 @@
             class="colorbtn"
             @click="validateGuess(color.name)">
             </button>
-            <div id="resultMessage">{{ resultMessage }}</div>
+            <div id="resultMessage" v-show="showResultMessage"> {{ resultMessage }}</div>
         </div>
         </div>
 
@@ -35,6 +35,11 @@ export default ({
             startText: 'Play',
             playAgainText: 'You Got It! 👍\nPlay Again',
             answer: '',
+            showResultMessage: false,
+            variantStyle: {
+                filter: 'grayscale(100%)',
+                transition: 'filter 0.5s, background-color 0.5s'
+            }
         };
     },
     async created() {
@@ -64,7 +69,7 @@ export default ({
                 //alert(response.data);
                 this.resultMessage = response.data.message;
 
-                const result = document.getElementById('resultMessage');
+                //const result = document.getElementById('resultMessage');
 
                 const resultBoolean = response.data.boolean;
                 console.log("resultboolean:", resultBoolean);
@@ -72,18 +77,22 @@ export default ({
                 this.isGameStarted = true;
 
                 const gameChart = document.getElementById('gameChart');
-                const variant = document.getElementById('variant');
                 
                 if (this.correctGuess === resultBoolean) {
-                    result.style.display = "block";
+                    this.showResultMessage = true;
+                    //result.style.display = "block";
                     gameChart.style.display = "block";
                 } else if (!this.correctGuess === resultBoolean) {
                     this.isGameStarted = false;
                     this.gameOver = true;
-                    result.style.display = "none";
-                    this.resultMessage = " ";
-                    gameChart.style.display = "none";
-                    variant.changeVariantColor(this.response.name);
+                    this.showResultMessage = true;
+                    this.changeVariantColor(response.data.name);
+
+                    setTimeout(() => {
+                        //this.resultMessage = " ";
+                        this.showResultMessage = false;
+                        gameChart.style.display = "none";
+                    }, 2000);
                 }
 
             } catch (error) {
@@ -91,26 +100,24 @@ export default ({
             }
         },
         changeVariantColor(answer) {
-            const variant = document.getElementById("variant");
-            variant.style.filter = "none";
             switch (answer) {
-                case 'pink':
-                    variant.style.filter = 'pink';
+                case '#ffbdd9':
+                    this.variantStyle.filter = 'sepia(1) hue-rotate(300deg) saturate(200%) contrast(150%)';
                     break;
-                case 'blue':
-                    variant.style.filter = 'blue';
+                case '#87ceeb':
+                    this.variantStyle.filter = 'sepia(1) hue-rotate(180deg) saturate(200%) contrast(150%)';
                     break;
-                case 'green':
-                    variant.style.filter = 'green';
+                case '#b9d8b9':
+                    this.variantStyle.filter ='sepia(1) hue-rotate(90deg) saturate(200%) contrast(150%';
                     break;
-                case 'purple':
-                    variant.style.filter = 'green';
+                case '#c3b1e1':
+                    this.variantStyle.filter = 'sepia(1) hue-rotate(240deg) saturate(200%) contrast(150%)';
                     break;
-                case 'yellow':
-                    variant.style.filter = 'green';
+                case '#fffaa0':
+                    this.variantStyle.filter = 'sepia(1) hue-rotate(10deg) saturate(200%) contrast(150%)';
                     break;
                 default:
-                    variant.style.filter = 'gray'; // Default or fallback color
+                    this.variantStyle.filter = 'grayscale(100%)'; // Default or fallback color
             }
         }
     },

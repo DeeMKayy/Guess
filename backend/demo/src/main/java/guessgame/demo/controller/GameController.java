@@ -17,6 +17,12 @@ public class GameController {
     private GameService GameService;
     private Color randomColor;
 
+    @GetMapping("/")
+    public String index() {
+        return "index.html";
+    }
+
+
     @CrossOrigin
     @GetMapping("/getColors") 
     public List<Color> getColors() {

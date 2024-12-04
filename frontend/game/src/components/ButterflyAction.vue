@@ -26,11 +26,11 @@ export default {
             const purples = document.querySelectorAll('.purple');
             const greens = document.querySelectorAll('.green');
 
-            pinks.forEach(pink => pink.style.filter = 'sepia(1) hue-rotate(300deg) contrast(150%)');
-            blues.forEach(blue => blue.style.filter = 'sepia(1) hue-rotate(180deg) contrast(150%)');
-            yellows.forEach(yellow => yellow.style.filter = 'sepia(1) hue-rotate(10deg) contrast(150%)');
-            purples.forEach(purple => purple.style.filter = 'sepia(1) hue-rotate(240deg) contrast(150%)');
-            greens.forEach(green => green.style.filter = 'sepia(1) hue-rotate(90deg) contrast(150%'); 
+            pinks.forEach(pink => pink.style.filter = 'sepia(1) hue-rotate(300deg) saturate(200%) contrast(150%)');
+            blues.forEach(blue => blue.style.filter = 'sepia(1) hue-rotate(180deg) saturate(200%) contrast(150%)');
+            yellows.forEach(yellow => yellow.style.filter = 'sepia(1) hue-rotate(10deg) saturate(200%) contrast(150%)');
+            purples.forEach(purple => purple.style.filter = 'sepia(1) hue-rotate(240deg) saturate(200%) contrast(150%)');
+            greens.forEach(green => green.style.filter = 'sepia(1) hue-rotate(90deg) saturate(200%) contrast(150%'); 
         }
     }
 }
