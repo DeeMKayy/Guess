@@ -44,7 +44,7 @@ export default ({
     },
     async created() {
         try {
-            const response = await axios.get('http://localhost:8080/api/getColors');
+            const response = await axios.get('http://guess-production-4f12.up.railway.app/api/getColors');
             this.colorsArr = response.data;
         } catch (error) {
             console.error('Error fetching colors:', error);
