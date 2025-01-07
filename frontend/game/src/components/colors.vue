@@ -44,7 +44,7 @@ export default ({
     },
     async created() {
         try {
-            const response = await axios.get('http://localhost:8083/api/getColors');
+            const response = await axios.get('http://localhost:8080/api/getColors');
             this.colorsArr = response.data;
         } catch (error) {
             console.error('Error fetching colors:', error);
@@ -53,7 +53,7 @@ export default ({
     methods: {
         async startGame() {
         try {
-            const response = await axios.get("http://localhost:8083/api/start");
+            const response = await axios.get("http://localhost:8080/api/start");
             console.log(response.data);
             this.answer = response.data.name;
             this.isGameStarted = true;
@@ -65,7 +65,7 @@ export default ({
         },
         async validateGuess(selection) {
             try {
-                const response = await axios.post('http://localhost:8083/api/guess', { guess: selection });
+                const response = await axios.post('http://localhost:8080/api/guess', { guess: selection });
                 //alert(response.data);
                 this.resultMessage = response.data.message;
 
