@@ -53,7 +53,7 @@ export default ({
     methods: {
         async startGame() {
         try {
-            const response = await axios.get("http://localhost:8080/api/start");
+            const response = await axios.get("http://guess-production-4f12.up.railway.app/api/start");
             console.log(response.data);
             this.answer = response.data.name;
             this.isGameStarted = true;
@@ -65,7 +65,7 @@ export default ({
         },
         async validateGuess(selection) {
             try {
-                const response = await axios.post('http://localhost:8080/api/guess', { guess: selection });
+                const response = await axios.post('http://guess-production-4f12.up.railway.app/api/guess', { guess: selection });
                 //alert(response.data);
                 this.resultMessage = response.data.message;
 
