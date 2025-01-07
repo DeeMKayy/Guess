@@ -32,7 +32,7 @@ export default {
 
 <style>
 body {
-  background-image: url('../src/assets/background.png');
+  background-image: url('../src/assets/background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
