@@ -44,7 +44,7 @@ export default ({
     },
     async created() {
         try {
-            const response = await axios.get('https://guess-production-4f12.up.railway.app/api/getColors');
+            const response = await axios.get('/api/getColors');
             this.colorsArr = response.data;
         } catch (error) {
             console.error('Error fetching colors:', error);
@@ -53,7 +53,7 @@ export default ({
     methods: {
         async startGame() {
         try {
-            const response = await axios.get("https://guess-production-4f12.up.railway.app/api/start");
+            const response = await axios.get("/api/start");
             console.log(response.data);
             this.answer = response.data.name;
             this.isGameStarted = true;
@@ -65,7 +65,7 @@ export default ({
         },
         async validateGuess(selection) {
             try {
-                const response = await axios.post('https://guess-production-4f12.up.railway.app/api/guess', { guess: selection });
+                const response = await axios.post('/api/guess', { guess: selection });
                 //alert(response.data);
                 this.resultMessage = response.data.message;
 
