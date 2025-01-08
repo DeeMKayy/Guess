@@ -10,9 +10,9 @@ public class CorsConfig {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://https://guess-rose.vercel.app/") // Replace with the Railway URL
+                        .allowedOrigins("https://guess-rose.vercel.app") // Replace with the Railway URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
