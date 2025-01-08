@@ -7,7 +7,7 @@ public class Guess {
     @JsonCreator
     public Guess(@JsonProperty("guess") String guess) {
         this.guess = guess;
-    }    // Getter and setter
+    }   
 
     public void setGuess(String guess) {
         this.guess = guess;

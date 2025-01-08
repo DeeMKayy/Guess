@@ -42,9 +42,7 @@ public class GameController {
     @PostMapping("/guess")
     public ResponseEntity<Map<String, Object>> guessColor(@RequestBody Guess guess) {
         System.out.println("Answer: " + guess);
-        /*if (randomColor == null) {
-            randomColor = GameService.getRandomColor();
-        }*/
+       
         String result = GameService.checkGuess(guess.getGuess(), randomColor);
         boolean isCorrect = GameService.isCorrectGuess();
         System.out.println("Correct boolean: " + isCorrect);

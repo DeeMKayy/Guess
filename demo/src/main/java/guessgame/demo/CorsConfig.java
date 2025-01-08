@@ -12,7 +12,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://guess-rose.vercel.app") // Replace with the Railway URL
+                        .allowedOrigins("https://guess-rose.vercel.app") 
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
