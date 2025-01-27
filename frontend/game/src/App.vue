@@ -37,6 +37,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  height: auto;
+  width: 100%;
 }
 
 #app {
@@ -74,10 +76,14 @@ h1 {
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
+  .app {
+    overflow: hidden;
+  }
   
   h1 {
     position: relative;
     left: 50%;
+    transform: translate(-50%);
 }
 
 #txtBackdrop {
