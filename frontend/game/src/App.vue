@@ -34,9 +34,11 @@ export default {
 body {
   background-image: url('../src/assets/background.webp');
   background-size: cover;
+  object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  height: auto;
   width: 100%;
 }
 
