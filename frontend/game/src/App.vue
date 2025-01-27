@@ -39,8 +39,6 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: -moz-hidden-unscrollable;
-  overflow: hidden;
 }
 
 #app {
@@ -49,6 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+  overflow: hidden;
 }
 
 h1 {
