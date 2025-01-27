@@ -39,14 +39,15 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
 }
 #app {
   font-family: 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /*color: #effa51;*/
   margin-top: 60px;
 }
 
@@ -73,5 +74,19 @@ h1 {
 }
 #flyCont{
   top: -10%;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  h1 {
+    positon: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#txtBackdrop {
+  margin-left: 35%;
+  margin-top: 10%;
+}
+
 }
 </style>
