@@ -38,8 +38,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 0px;
   min-width: 100%;
   height: 100vh;
 }
