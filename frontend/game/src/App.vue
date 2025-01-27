@@ -39,7 +39,8 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
   position: absolute;
-  width: 100%;
+  top: 0;
+  min-width: 100%;
   height: 100vh;
 }
 
