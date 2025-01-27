@@ -36,9 +36,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
 }
 
 #app {
@@ -80,7 +78,6 @@ h1 {
   h1 {
     position: relative;
     left: 50%;
-    transform: translate(-50%);
 }
 
 #txtBackdrop {
