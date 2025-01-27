@@ -34,14 +34,12 @@ export default {
 body {
   background-image: url('../src/assets/background.webp');
   background-size: cover;
-  object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  position: fixed;
-  top: 0px;
-  min-width: 100%;
+  margin: 0;
   height: 100vh;
+  width: 100vw;
 }
 
 #app {
