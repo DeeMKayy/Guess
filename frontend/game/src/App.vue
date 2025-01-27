@@ -39,10 +39,10 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-
+  overflow: -moz-hidden-unscrollable;
+  overflow: hidden;
 }
+
 #app {
   font-family: 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
@@ -77,8 +77,9 @@ h1 {
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
+  
   h1 {
-    positon: relative;
+    position: relative;
     left: 50%;
     transform: translate(-50%);
 }
