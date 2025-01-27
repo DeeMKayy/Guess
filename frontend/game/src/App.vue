@@ -37,7 +37,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  height: auto;
+  height: 100%;
   width: 100%;
 }
 
